@@ -24,7 +24,6 @@ void InitializeView(int argc, char * argv[])
 void InitializeModel()
 {
 	World::Instance().InitWorld(1000, 1000);
-	World::Instance().StartSimulate();
 }
 
 int main(int argc, char * argv[])

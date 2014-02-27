@@ -14,5 +14,6 @@ public:
 	Anthill(Vector * pos, float _size);
 	~Anthill();
 	const vector<BaseAnt *> GetAnts();
+	void Update(float _deltaTime);
 };
 

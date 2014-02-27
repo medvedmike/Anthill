@@ -12,7 +12,7 @@ protected:
 public:
 	BaseAnt(Vector * _position, float _size, float _speed, float _eating, float _defence);
 	~BaseAnt();
-	void Update();
+	void Update(float _deltaTime);
 	float GetHealth();
 };
 

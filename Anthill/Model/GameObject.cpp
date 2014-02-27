@@ -1,5 +1,5 @@
 #include "GameObject.h"
-
+#include "..\Log.h"
 
 GameObject::GameObject(Vector * _position, float _size)
 {
@@ -27,7 +27,7 @@ float GameObject::Size()
 	return this->size;
 }
 
-void GameObject::Update()
+void GameObject::Update(float _deltaTime)
 {
 
 }

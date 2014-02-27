@@ -1,5 +1,7 @@
 #include "BaseAnt.h"
 #include "..\..\GameObject.h"
+#include "..\..\..\Log.h"
+#include <sstream>
 
 #define MAX_HP 1
 #define MAX_SATIETY 1
@@ -18,12 +20,15 @@ BaseAnt::~BaseAnt()
 {
 }
 
-void BaseAnt::Update()
+void BaseAnt::Update(float _deltaTime)
 {
-	GameObject::Update();
-	satiety -= eating;
-	if (satiety < 0) health += satiety;
+	GameObject::Update(_deltaTime);
+	satiety -= eating * _deltaTime;
+	if (satiety < 0) health += satiety * _deltaTime;
 	if (health < 0) health = 0;
+	//std::ostringstream buf;
+	//buf << "delta time: " << _deltaTime << " health: " << health << " satiety: " << satiety;
+	//Log::Message(buf.str());
 }
 
 float BaseAnt::GetHealth()

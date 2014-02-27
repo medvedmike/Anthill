@@ -39,6 +39,9 @@
     <ClInclude Include="Model\Objects\Ants\Queen.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Model\Objects\Ants\Larvae.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -66,6 +69,9 @@
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="Model\Objects\Ants\Queen.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Objects\Ants\Larvae.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>

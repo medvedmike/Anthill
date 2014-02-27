@@ -8,6 +8,9 @@
 
 using namespace std;
 
+#define TIMER_INTERVAL 14
+#define DELTA_TIME TIMER_INTERVAL / 1000.
+
 View::View()
 {
 
@@ -56,8 +59,9 @@ void View::DrawAthill(Anthill * anthill)
 
 void View::Update(int arg)
 {
+	World::Instance().Update(DELTA_TIME);
 	glutPostRedisplay();
-	glutTimerFunc(14, Update, 0);
+	glutTimerFunc(TIMER_INTERVAL, Update, 0);
 }
 
 void View::Draw()
@@ -78,7 +82,7 @@ void View::Initialize(int argc, char * argv[], int width, int height)
 	glutInitWindowPosition(100, 200);
 	glutCreateWindow("Anthill");
 	glutDisplayFunc(Draw);
-	glutTimerFunc(14, Update, 0);
+	glutTimerFunc(TIMER_INTERVAL, Update, 0);
 
 	glClearColor(0.0, 0.4, 0.0, 1.0);
 	glMatrixMode(GL_PROJECTION);

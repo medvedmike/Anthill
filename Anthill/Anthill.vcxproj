@@ -82,6 +82,7 @@
     <ClInclude Include="Model\GameObject.h" />
     <ClInclude Include="Model\Objects\Anthill.h" />
     <ClInclude Include="Model\Objects\Ants\BaseAnt.h" />
+    <ClInclude Include="Model\Objects\Ants\Larvae.h" />
     <ClInclude Include="Model\Objects\Ants\Queen.h" />
     <ClInclude Include="Model\Utils\Vector.h" />
     <ClInclude Include="Model\World.h" />
@@ -93,6 +94,7 @@
     <ClCompile Include="Model\GameObject.cpp" />
     <ClCompile Include="Model\Objects\Anthill.cpp" />
     <ClCompile Include="Model\Objects\Ants\BaseAnt.cpp" />
+    <ClCompile Include="Model\Objects\Ants\Larvae.cpp" />
     <ClCompile Include="Model\Objects\Ants\Queen.cpp" />
     <ClCompile Include="Model\Utils\Vector.cpp" />
     <ClCompile Include="Model\World.cpp" />

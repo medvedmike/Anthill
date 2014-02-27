@@ -12,6 +12,6 @@ public:
 	Vector * Position();
 	void Position(Vector * value);
 	float Size();
-	virtual void Update();
+	virtual void Update(float _deltaTime);
 };
 

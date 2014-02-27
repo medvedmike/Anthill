@@ -16,7 +16,7 @@ public:
 		return instance;
 	}
 	void InitWorld(int _worldWidth, int _worldHeight);
-	void StartSimulate();
+	void Update(float _deltaTime);
 	Anthill * GetAnthill();
 };
 
