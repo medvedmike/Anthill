@@ -8,7 +8,7 @@ protected:
 	float size;
 public:
 	GameObject(Vector * _position, float _size);
-	~GameObject();
+	virtual ~GameObject();
 	Vector * Position();
 	void Position(Vector * value);
 	float Size();

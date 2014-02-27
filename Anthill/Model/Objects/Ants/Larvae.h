@@ -1,8 +1,10 @@
 #pragma once
-class Larvae
+#include "BaseAnt.h"
+
+class Larvae : public BaseAnt
 {
 public:
-	Larvae();
+	Larvae(Vector * _position, float _size, Anthill * _home);
 	~Larvae();
 };
 

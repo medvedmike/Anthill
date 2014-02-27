@@ -1,17 +1,33 @@
 #include "Anthill.h"
 #include "Ants\Queen.h"
 #include "..\..\Log.h"
+#include "..\Objects\Ants\Larvae.h"
 
 Anthill::Anthill(Vector * _position, float _size) : GameObject(_position, _size)
 {
-	Queen * queen = new Queen(new Vector(0, 0), 7 );
+	Queen * queen = new Queen(Vector::RandomAround(position->X(), position->Y(), size), 7, this);
 	ants.push_back(queen);
+	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), 2, this));
+	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), 2, this));
+	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), 2, this));
+	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), 2, this));
+	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), 2, this));
+	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), 2, this));
+	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), 2, this));
+	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), 2, this));
 	Log::Message("Anthill created");
 }
 
 
 Anthill::~Anthill()
 {
+	vector<BaseAnt *>::iterator i = ants.begin();
+	while (i != ants.end())
+	{
+			BaseAnt * ant = *i._Ptr;
+			i = ants.erase(i);
+			delete ant;
+	}
 }
 
 const vector<BaseAnt *> Anthill::GetAnts()

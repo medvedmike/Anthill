@@ -6,6 +6,8 @@
 
 using namespace std;
 
+class BaseAnt;
+
 class Anthill : public GameObject
 {
 private:

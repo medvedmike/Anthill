@@ -7,7 +7,7 @@ private:
 	World(){ Log::Message("World created"); };
 	World(const World& root);
 	World& operator=(const World&);
-
+	~World();
 	Anthill * anthill;
 public:
 	static World& Instance()

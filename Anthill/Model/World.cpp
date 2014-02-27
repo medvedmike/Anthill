@@ -17,3 +17,8 @@ void World::Update(float _deltaTime)
 {
 	anthill->Update(_deltaTime);
 }
+
+World::~World()
+{
+	delete anthill;
+}

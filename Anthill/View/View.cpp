@@ -5,6 +5,7 @@
 #include <vector>
 #include "..\Model\Objects\Ants\Queen.h"
 #include <sstream>
+#include "..\Model\Objects\Ants\Larvae.h"
 
 using namespace std;
 
@@ -18,7 +19,6 @@ View::View()
 
 View::~View()
 {
-
 }
 
 void View::DrawCircle(float x, float y, float r, int segments)
@@ -34,7 +34,9 @@ void View::DrawCircle(float x, float y, float r, int segments)
 
 void View::DrawAnt(BaseAnt * ant)
 {
-	if (typeid(*ant) == typeid(Queen))
+	if (typeid(*ant) == typeid(Larvae))
+		glColor4f(0.9, 0.9, 0.8, 1);
+	else if (typeid(*ant) == typeid(Queen))
 		glColor4f(0.8, 0.7, 0.6, 1);
 	else
 		glColor4f(0, 0, 0, 1);
