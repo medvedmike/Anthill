@@ -4,6 +4,8 @@
 #include <sstream>
 #include "..\..\Log.h"
 
+const Vector Vector::zero(0, 0);
+
 Vector::Vector(float _x, float _y) : x(_x), y(_y)
 {
 
@@ -48,8 +50,11 @@ float Vector::DistanceTo(Vector * target)
 void Vector::Normalize()
 {
 	float len = sqrt(x*x + y*y);
-	x /= len;
-	y /= len;
+	if (len != 0)
+	{
+		x /= len;
+		y /= len;
+	}
 }
 
 const Vector& operator+(const Vector& left, const Vector& right)

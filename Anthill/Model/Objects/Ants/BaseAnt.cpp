@@ -38,7 +38,15 @@ void BaseAnt::Update(float _deltaTime)
 	if (health < 0) health = 0;
 	if (health > 0)
 	{
-		if (*targetPoint != *position) {
+		if (targetObject != NULL && position->DistanceTo(targetObject->Position()) > speed + size)
+			*direction = *targetObject->Position() - *position;
+		else if (targetPoint != NULL && position->DistanceTo(targetPoint) > speed + size)
+			*direction = *targetPoint - *position;
+		else
+			*direction = Vector::zero;
+		direction->Normalize();
+		*position += *direction * speed * _deltaTime;
+		/*if (*targetPoint != *position) {
 			*direction = *targetPoint - *position;
 			direction->Normalize();
 		}
@@ -56,7 +64,7 @@ void BaseAnt::Update(float _deltaTime)
 			Vector * oldTarget = targetPoint;
 			targetPoint = Vector::RandomAround(home->Position()->X(), home->Position()->Y(), home->Size());
 			delete oldTarget;
-		}
+		}*/
 	}
 	//std::ostringstream buf;
 	//buf << "delta time: " << _deltaTime << " health: " << health << " satiety: " << satiety;

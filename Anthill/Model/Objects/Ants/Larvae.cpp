@@ -1,4 +1,5 @@
 #include "Larvae.h"
+#include "..\..\..\Log.h"
 
 #define LARVAE_SPEED 5
 #define LARVAE_EATING 0.08f
@@ -12,4 +13,5 @@ Larvae::Larvae(Vector * _position, float _size, Anthill * _home) : BaseAnt(_posi
 
 Larvae::~Larvae()
 {
+	Log::Debug("Larvae was died");
 }
