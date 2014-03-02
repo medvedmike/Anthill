@@ -3,7 +3,7 @@
 class Queen : public BaseAnt
 {
 public:
-	Queen(Vector * _position, float _size, Anthill * _home);
+	Queen(Vector * _position, Anthill * _home);
 	~Queen();
 };
 

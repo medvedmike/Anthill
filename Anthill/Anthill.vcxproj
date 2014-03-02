@@ -81,9 +81,13 @@
     <ClInclude Include="Log.h" />
     <ClInclude Include="Model\GameObject.h" />
     <ClInclude Include="Model\Objects\Anthill.h" />
+    <ClInclude Include="Model\Objects\Ants\AntsProperties.h" />
     <ClInclude Include="Model\Objects\Ants\BaseAnt.h" />
     <ClInclude Include="Model\Objects\Ants\Larvae.h" />
+    <ClInclude Include="Model\Objects\Ants\Policeman.h" />
     <ClInclude Include="Model\Objects\Ants\Queen.h" />
+    <ClInclude Include="Model\Objects\Ants\Warrior.h" />
+    <ClInclude Include="Model\Objects\Ants\Worker.h" />
     <ClInclude Include="Model\Utils\Vector.h" />
     <ClInclude Include="Model\World.h" />
     <ClInclude Include="View\View.h" />
@@ -95,7 +99,10 @@
     <ClCompile Include="Model\Objects\Anthill.cpp" />
     <ClCompile Include="Model\Objects\Ants\BaseAnt.cpp" />
     <ClCompile Include="Model\Objects\Ants\Larvae.cpp" />
+    <ClCompile Include="Model\Objects\Ants\Policeman.cpp" />
     <ClCompile Include="Model\Objects\Ants\Queen.cpp" />
+    <ClCompile Include="Model\Objects\Ants\Warrior.cpp" />
+    <ClCompile Include="Model\Objects\Ants\Worker.cpp" />
     <ClCompile Include="Model\Utils\Vector.cpp" />
     <ClCompile Include="Model\World.cpp" />
     <ClCompile Include="View\View.cpp" />

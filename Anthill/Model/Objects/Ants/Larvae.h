@@ -4,7 +4,7 @@
 class Larvae : public BaseAnt
 {
 public:
-	Larvae(Vector * _position, float _size, Anthill * _home);
+	Larvae(Vector * _position, Anthill * _home);
 	~Larvae();
 };
 

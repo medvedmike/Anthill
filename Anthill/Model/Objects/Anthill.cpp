@@ -1,20 +1,40 @@
 #include "Anthill.h"
 #include "Ants\Queen.h"
 #include "..\..\Log.h"
-#include "..\Objects\Ants\Larvae.h"
+#include "Ants\Larvae.h"
+#include "Ants\Policeman.h"
+#include "Ants\Worker.h"
+#include "Ants\Warrior.h"
 
 Anthill::Anthill(Vector * _position, float _size) : GameObject(_position, _size)
 {
-	Queen * queen = new Queen(Vector::RandomAround(position->X(), position->Y(), size), 7, this);
+	Queen * queen = new Queen(Vector::RandomAround(position->X(), position->Y(), size), this);
 	ants.push_back(queen);
-	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), 2, this));
-	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), 2, this));
-	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), 2, this));
-	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), 2, this));
-	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), 2, this));
-	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), 2, this));
-	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), 2, this));
-	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), 2, this));
+
+	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
+
+	ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
+
+	ants.push_back(new Worker(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Worker(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Worker(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Worker(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Worker(Vector::RandomAround(position->X(), position->Y(), size), this));
+
+	ants.push_back(new Warrior(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Warrior(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Warrior(Vector::RandomAround(position->X(), position->Y(), size), this));
+
 	Log::Message("Anthill created");
 }
 

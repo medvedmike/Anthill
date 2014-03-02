@@ -42,6 +42,18 @@
     <ClInclude Include="Model\Objects\Ants\Larvae.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Model\Objects\Ants\Worker.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Objects\Ants\Warrior.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Objects\Ants\Policeman.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Objects\Ants\AntsProperties.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -72,6 +84,15 @@
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="Model\Objects\Ants\Larvae.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Objects\Ants\Worker.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Objects\Ants\Warrior.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Objects\Ants\Policeman.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
