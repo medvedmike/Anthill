@@ -9,6 +9,7 @@
 #include "..\Model\Objects\Ants\Policeman.h"
 #include "..\Model\Objects\Ants\Worker.h"
 #include "..\Model\Objects\Ants\Warrior.h"
+#include "..\Model\Objects\ObjectsProperties.h"
 
 using namespace std;
 
@@ -35,12 +36,23 @@ void View::DrawCircle(float x, float y, float r, int segments)
 	glPopMatrix();
 }
 
+void View::FillCircle(float x, float y, float r, int segments)
+{
+	glPushMatrix();
+	glTranslatef(x, y, 0);
+	glBegin(GL_POLYGON);
+	for (float i = 0; i < 2 * 3.14; i += 2 * 3.14 / segments)
+		glVertex2f(r * sin(i), r * cos(i));
+	glEnd();
+	glPopMatrix();
+}
+
 void View::DrawAnt(BaseAnt * ant)
 {
 	if (typeid(*ant) == typeid(Worker))
 		glColor4f(0.5, 0.5, 0.5, 1);
 	else if (typeid(*ant) == typeid(Warrior))
-		glColor4f(0.8, 0.2, 0.2, 1);
+		glColor4f(0.65, 0.2, 0.2, 1);
 	else if(typeid(*ant) == typeid(Larvae))
 		glColor4f(0.9, 0.9, 0.8, 1);
 	else if (typeid(*ant) == typeid(Policeman))
@@ -66,6 +78,10 @@ void View::DrawAthill(Anthill * anthill)
 	glColor4f(0.3, 0.2, 0, 1);
 	glLineWidth(4);
 	DrawCircle(anthill->Position()->X(), anthill->Position()->Y(), anthill->Size(), 16);
+	glColor4f(0.7, 0.7, 0.4, 1);
+	FillCircle(anthill->GetStorage()->Position()->X(),
+		anthill->GetStorage()->Position()->Y(),
+		anthill->GetStorage()->Size() * anthill->GetStorage()->GetFill() / FOOD_STORAGE_MAX_FOOD, 16);
 }
 
 void View::Update(int arg)
@@ -78,10 +94,21 @@ void View::Update(int arg)
 void View::Draw()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
+	glBegin(GL_LINE);
+	for (int i = 0; i < 1000; i += 100)
+	{
+		glVertex2f(i, 0);
+		glVertex2f(i, 1000);
+	}
+	glEnd();
 	DrawAthill(World::Instance().GetAnthill());
 	vector<BaseAnt *> ants = World::Instance().GetAnthill()->GetAnts();
 	for (vector<BaseAnt *>::iterator ant = ants.begin(); ant != ants.end(); ant++)
 		DrawAnt(*ant._Ptr);
+	glColor4f(0.9, 0.9, 0.5, 1);
+	vector<FoodSource *> foodSources = World::Instance().GetFoodSources();
+	for (vector<FoodSource *>::iterator source = foodSources.begin(); source != foodSources.end(); source++)
+		FillCircle((*source._Ptr)->Position()->X(), (*source._Ptr)->Position()->Y(), (*source._Ptr)->getStorage() / FOOD_SOURCE_STORAGE_FACTOR, 16);
 	glutSwapBuffers();
 }
 

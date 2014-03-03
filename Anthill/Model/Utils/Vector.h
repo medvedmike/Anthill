@@ -23,5 +23,6 @@ public:
 	friend bool operator!=(const Vector& left, const Vector& right);
 	static Vector * RandomAround(float x, float y, float radius);
 	static const Vector zero;
+	void Noize();
 };
 

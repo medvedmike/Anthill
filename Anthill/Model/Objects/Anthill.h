@@ -3,6 +3,7 @@
 #include "../GameObject.h"
 #include "../Utils/Vector.h"
 #include <vector>
+#include "FoodStorage.h"
 
 using namespace std;
 
@@ -12,10 +13,12 @@ class Anthill : public GameObject
 {
 private:
 	vector<BaseAnt *> ants; 
+	FoodStorage * storage;
 public:
 	Anthill(Vector * pos, float _size);
 	~Anthill();
 	const vector<BaseAnt *> GetAnts();
 	void Update(float _deltaTime);
+	FoodStorage * GetStorage();
 };
 

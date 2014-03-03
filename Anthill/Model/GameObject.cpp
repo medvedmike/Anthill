@@ -10,6 +10,7 @@ GameObject::GameObject(Vector * _position, float _size)
 
 GameObject::~GameObject()
 {
+	delete position;
 }
 
 Vector * GameObject::Position()

@@ -54,6 +54,33 @@
     <ClInclude Include="Model\Objects\Ants\AntsProperties.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Model\Objects\Nest.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Objects\FoodStorage.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Objects\ObjectsProperties.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Objects\FoodSource.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\BehaviorOfAnts\BaseStrategy.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\BehaviorOfAnts\WorkerBaseStrategy.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\BehaviorOfAnts\CollectResourcesStrategy.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\BehaviorOfAnts\EatingStrategy.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\BehaviorOfAnts\WaitingStrategy.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -93,6 +120,30 @@
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="Model\Objects\Ants\Policeman.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Objects\Nest.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Objects\FoodStorage.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Objects\FoodSource.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\BehaviorOfAnts\WorkerBaseStrategy.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\BehaviorOfAnts\CollectResourcesStrategy.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\BehaviorOfAnts\BaseStrategy.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\BehaviorOfAnts\EatingStrategy.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\BehaviorOfAnts\WaitingStrategy.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,6 +1,9 @@
 #ifndef ANTS_PROP
 #define ANTS_PROP
 
+#define MAX_HP 1
+#define MAX_SATIETY 1
+
 #define QUEEN_SPEED 25
 #define QUEEN_EATING 0.05f
 #define QUEEN_DEFENCE 5
@@ -22,9 +25,10 @@
 #define POLICEMAN_DEFENCE 2
 #define POLICEMAN_SIZE 5
 
-#define WORKER_SPEED 50
+#define WORKER_SPEED 65
 #define WORKER_EATING 0.015f
 #define WORKER_DEFENCE 1
 #define WORKER_SIZE 3.5f
+#define WORKER_CASH_SIZE 5
 
 #endif

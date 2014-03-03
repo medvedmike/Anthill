@@ -52,7 +52,7 @@ void InitializeView(int argc, char * argv[])
 
 void InitializeModel()
 {
-	World::Instance().InitWorld(1000, 1000);
+	World::Instance().InitWorld(300);
 }
 
 int main(int argc, char * argv[])

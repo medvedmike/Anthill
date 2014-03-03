@@ -113,3 +113,9 @@ Vector * Vector::RandomAround(float x, float y, float radius)
 	Log::Message(buf.str());
 	return v;
 }
+
+void Vector::Noize()
+{
+	this->x += (rand() % 2 - 0.5) / 2;
+	this->y += (rand() % 2 - 0.5) / 2;
+}

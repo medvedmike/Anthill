@@ -5,9 +5,12 @@
 #include "Ants\Policeman.h"
 #include "Ants\Worker.h"
 #include "Ants\Warrior.h"
+#include <sstream>
 
 Anthill::Anthill(Vector * _position, float _size) : GameObject(_position, _size)
 {
+	storage = new FoodStorage(Vector::RandomAround(position->X(), position->Y(), size));
+
 	Queen * queen = new Queen(Vector::RandomAround(position->X(), position->Y(), size), this);
 	ants.push_back(queen);
 
@@ -35,7 +38,9 @@ Anthill::Anthill(Vector * _position, float _size) : GameObject(_position, _size)
 	ants.push_back(new Warrior(Vector::RandomAround(position->X(), position->Y(), size), this));
 	ants.push_back(new Warrior(Vector::RandomAround(position->X(), position->Y(), size), this));
 
-	Log::Message("Anthill created");
+	std::ostringstream buf;
+	buf << "Anthilll created at (" << position->X() << ";" << position->Y() << ") with size=" << size;
+	Log::Message(buf.str());
 }
 
 
@@ -70,4 +75,9 @@ void Anthill::Update(float _deltaTime)
 		else
 			i++;
 	}
+}
+
+FoodStorage * Anthill::GetStorage()
+{
+	return storage;
 }

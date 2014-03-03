@@ -79,6 +79,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Log.h" />
+    <ClInclude Include="Model\BehaviorOfAnts\BaseStrategy.h" />
+    <ClInclude Include="Model\BehaviorOfAnts\CollectResourcesStrategy.h" />
+    <ClInclude Include="Model\BehaviorOfAnts\EatingStrategy.h" />
+    <ClInclude Include="Model\BehaviorOfAnts\WaitingStrategy.h" />
+    <ClInclude Include="Model\BehaviorOfAnts\WorkerBaseStrategy.h" />
     <ClInclude Include="Model\GameObject.h" />
     <ClInclude Include="Model\Objects\Anthill.h" />
     <ClInclude Include="Model\Objects\Ants\AntsProperties.h" />
@@ -88,6 +93,10 @@
     <ClInclude Include="Model\Objects\Ants\Queen.h" />
     <ClInclude Include="Model\Objects\Ants\Warrior.h" />
     <ClInclude Include="Model\Objects\Ants\Worker.h" />
+    <ClInclude Include="Model\Objects\FoodSource.h" />
+    <ClInclude Include="Model\Objects\FoodStorage.h" />
+    <ClInclude Include="Model\Objects\Nest.h" />
+    <ClInclude Include="Model\Objects\ObjectsProperties.h" />
     <ClInclude Include="Model\Utils\Vector.h" />
     <ClInclude Include="Model\World.h" />
     <ClInclude Include="View\View.h" />
@@ -95,6 +104,11 @@
   <ItemGroup>
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Model\BehaviorOfAnts\BaseStrategy.cpp" />
+    <ClCompile Include="Model\BehaviorOfAnts\CollectResourcesStrategy.cpp" />
+    <ClCompile Include="Model\BehaviorOfAnts\EatingStrategy.cpp" />
+    <ClCompile Include="Model\BehaviorOfAnts\WaitingStrategy.cpp" />
+    <ClCompile Include="Model\BehaviorOfAnts\WorkerBaseStrategy.cpp" />
     <ClCompile Include="Model\GameObject.cpp" />
     <ClCompile Include="Model\Objects\Anthill.cpp" />
     <ClCompile Include="Model\Objects\Ants\BaseAnt.cpp" />
@@ -103,6 +117,9 @@
     <ClCompile Include="Model\Objects\Ants\Queen.cpp" />
     <ClCompile Include="Model\Objects\Ants\Warrior.cpp" />
     <ClCompile Include="Model\Objects\Ants\Worker.cpp" />
+    <ClCompile Include="Model\Objects\FoodSource.cpp" />
+    <ClCompile Include="Model\Objects\FoodStorage.cpp" />
+    <ClCompile Include="Model\Objects\Nest.cpp" />
     <ClCompile Include="Model\Utils\Vector.cpp" />
     <ClCompile Include="Model\World.cpp" />
     <ClCompile Include="View\View.cpp" />
