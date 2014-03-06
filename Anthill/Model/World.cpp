@@ -26,6 +26,7 @@ Anthill * World::GetAnthill()
 
 void World::Update(float _deltaTime)
 {
+	deltaTime = _deltaTime;
 	anthill->Update(_deltaTime);
 	vector<FoodSource *>::iterator fs = foodSourecs.begin();
 	while (fs != foodSourecs.end())
@@ -57,4 +58,9 @@ const vector<FoodSource *> World::GetFoodSources()
 FoodSource * World::getRandomFoodSource()
 {
 	return foodSourecs[rand() % foodSourecs.size()];
+}
+
+float World::GetDeltaTime()
+{
+	return deltaTime;
 }

@@ -79,7 +79,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Log.h" />
+    <ClInclude Include="Model\BehaviorOfAnts\BaseQueenStrategy.h" />
     <ClInclude Include="Model\BehaviorOfAnts\BaseStrategy.h" />
+    <ClInclude Include="Model\BehaviorOfAnts\BornStrategy.h" />
     <ClInclude Include="Model\BehaviorOfAnts\CollectResourcesStrategy.h" />
     <ClInclude Include="Model\BehaviorOfAnts\EatingStrategy.h" />
     <ClInclude Include="Model\BehaviorOfAnts\WaitingStrategy.h" />
@@ -104,7 +106,9 @@
   <ItemGroup>
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Model\BehaviorOfAnts\BaseQueenStrategy.cpp" />
     <ClCompile Include="Model\BehaviorOfAnts\BaseStrategy.cpp" />
+    <ClCompile Include="Model\BehaviorOfAnts\BornStrategy.cpp" />
     <ClCompile Include="Model\BehaviorOfAnts\CollectResourcesStrategy.cpp" />
     <ClCompile Include="Model\BehaviorOfAnts\EatingStrategy.cpp" />
     <ClCompile Include="Model\BehaviorOfAnts\WaitingStrategy.cpp" />

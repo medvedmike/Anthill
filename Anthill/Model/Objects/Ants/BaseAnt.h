@@ -5,6 +5,8 @@
 class Anthill;
 class BaseStrategy;
 class EatingStrategy;
+class WaitingStrategy;
+class FoodStorage;
 
 class BaseAnt : public GameObject
 {
@@ -14,6 +16,8 @@ protected:
 	float defence;
 	float eating;
 	float satiety;
+	bool eat;
+	bool wait;
 	Vector * targetPoint;
 	Vector * direction;
 	GameObject * targetObject;
@@ -25,6 +29,8 @@ public:
 	virtual ~BaseAnt();
 	void Update(float _deltaTime);
 	float GetHealth();
+	void Eat(FoodStorage * storage);
 	friend EatingStrategy;
+	friend WaitingStrategy;
 };
 

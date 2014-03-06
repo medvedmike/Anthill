@@ -81,6 +81,12 @@
     <ClInclude Include="Model\BehaviorOfAnts\WaitingStrategy.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Model\BehaviorOfAnts\BornStrategy.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\BehaviorOfAnts\BaseQueenStrategy.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -144,6 +150,12 @@
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="Model\BehaviorOfAnts\WaitingStrategy.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\BehaviorOfAnts\BornStrategy.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\BehaviorOfAnts\BaseQueenStrategy.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>

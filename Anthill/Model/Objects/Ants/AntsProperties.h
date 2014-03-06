@@ -3,16 +3,20 @@
 
 #define MAX_HP 1
 #define MAX_SATIETY 1
+#define ANT_EAT 0.05f
 
 #define QUEEN_SPEED 25
 #define QUEEN_EATING 0.05f
 #define QUEEN_DEFENCE 5
 #define QUIEEN_SIZE 7
+#define QUEEN_TIME_TO_BORN 15
+#define QUEEN_MAX_LARVAES 5
 
 #define LARVAE_SPEED 5
 #define LARVAE_EATING 0.08f
 #define LARVAE_DEFENCE 0.5f
 #define LARVAE_SIZE 2
+#define LARVAE_TIME_TOGROWN 10
 
 #define WARRIOR_SPEED 45
 #define WARRIOR_EATING 0.04f
@@ -29,6 +33,6 @@
 #define WORKER_EATING 0.015f
 #define WORKER_DEFENCE 1
 #define WORKER_SIZE 3.5f
-#define WORKER_CASH_SIZE 5
+#define WORKER_CASH_SIZE 2.5f
 
 #endif

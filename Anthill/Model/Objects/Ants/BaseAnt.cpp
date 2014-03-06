@@ -7,6 +7,7 @@
 #include "..\..\BehaviorOfAnts\BaseStrategy.h"
 #include "..\..\BehaviorOfAnts\EatingStrategy.h"
 #include "..\..\BehaviorOfAnts\WaitingStrategy.h"
+#include "..\..\World.h"
 
 BaseAnt::BaseAnt(Vector * _position, float _size, float _speed, float _eating, float _defence, Anthill * _home) : GameObject(_position, _size)
 {
@@ -20,8 +21,10 @@ BaseAnt::BaseAnt(Vector * _position, float _size, float _speed, float _eating, f
 	direction = new Vector();
 	*this->targetPoint = *_position;
 	this->targetObject = NULL;
-	this->strategy = NULL;
+	this->strategy = new WaitingStrategy(this);
 	this->minSatiety = 0.5f;
+	this->eat = false;
+	this->wait = true;
 }
 
 
@@ -42,7 +45,7 @@ void BaseAnt::Update(float _deltaTime)
 	{
 		if (targetObject != NULL && position->DistanceTo(targetObject->Position()) > size + targetObject->Size())
 			*direction = *targetObject->Position() - *position;
-		else if (targetPoint != NULL && position->DistanceTo(targetPoint) > speed + size)
+		else if (targetPoint != NULL && position->DistanceTo(targetPoint) > 2 * size)
 			*direction = *targetPoint - *position;
 		else
 			*direction = Vector::zero;
@@ -50,21 +53,36 @@ void BaseAnt::Update(float _deltaTime)
 		*position += *direction * speed * _deltaTime;
 		position->Noize();
 	}
-	if (satiety < minSatiety)
+	if (satiety < minSatiety && !eat)
 	{
 		if (strategy != NULL) delete strategy;
+		targetObject = NULL;
 		strategy = new EatingStrategy(this);
+		eat = true;
+		wait = false;
 	}
-	else if (strategy != NULL && typeid(strategy) == typeid(EatingStrategy) && satiety >= 0.95f)
+	else if (eat && satiety >= 0.95f)
 	{
-		delete strategy;
+		if (strategy != NULL) delete strategy;
+		targetObject = NULL;
 		strategy = new WaitingStrategy(this);
+		eat = false;
+		wait = true;
 	}
 	if (strategy != NULL)
 		strategy->Update(_deltaTime);
 	//std::ostringstream buf;
 	//buf << "delta time: " << _deltaTime << " health: " << health << " satiety: " << satiety;
 	//Log::Message(buf.str());
+}
+
+void BaseAnt::Eat(FoodStorage * storage)
+{
+	if (satiety < MAX_SATIETY - ANT_EAT)
+		satiety += storage->GetFood(ANT_EAT);
+	/*std::ostringstream str;
+	str << satiety << "   " << ANT_EAT;
+	Log::Debug(str.str());*/
 }
 
 float BaseAnt::GetHealth()

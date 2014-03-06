@@ -15,7 +15,13 @@ Worker::Worker(Vector * _position, Anthill * _home) : BaseAnt(_position, WORKER_
 
 void Worker::Update(float _deltaTime)
 {
-	BaseAnt::Update(_deltaTime);	
+	BaseAnt::Update(_deltaTime);
+	if (wait)
+	{
+		if (strategy != NULL) delete strategy;
+		strategy = new CollectResourcesStrategy(this);
+		wait = false;
+	}
 }
 
 Worker::~Worker()

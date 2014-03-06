@@ -28,7 +28,17 @@ void FoodStorage::PushFood(float *cache)
 
 float FoodStorage::GetFood(float cache)
 {
-	return 0;
+	if (store >= cache)
+	{
+		store -= cache;
+		return cache;
+	}
+	else
+	{
+		float tmp = store;
+		store = 0;
+		return tmp;
+	}
 }
 
 float FoodStorage::GetFill()

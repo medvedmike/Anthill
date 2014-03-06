@@ -82,6 +82,10 @@ void View::DrawAthill(Anthill * anthill)
 	FillCircle(anthill->GetStorage()->Position()->X(),
 		anthill->GetStorage()->Position()->Y(),
 		anthill->GetStorage()->Size() * anthill->GetStorage()->GetFill() / FOOD_STORAGE_MAX_FOOD, 16);
+	glColor4f(0.6, 0.3, 0.2, 1);
+	FillCircle(anthill->GetNest()->Position()->X(),
+		anthill->GetNest()->Position()->Y(),
+		anthill->GetNest()->Size(), 16);
 }
 
 void View::Update(int arg)

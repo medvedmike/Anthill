@@ -1,8 +1,10 @@
 #pragma once
-class Nest
+#include "..\GameObject.h"
+
+class Nest :public GameObject
 {
 public:
-	Nest();
+	Nest(Vector * _position);
 	~Nest();
 };
 

@@ -6,5 +6,6 @@ class Larvae : public BaseAnt
 public:
 	Larvae(Vector * _position, Anthill * _home);
 	~Larvae();
+	void Update(float _deltaTime);
 };
 

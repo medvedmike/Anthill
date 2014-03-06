@@ -6,12 +6,13 @@
 class World
 {
 private:
-	World(){ Log::Message("World created"); };
+	World(){ Log::Message("World created"); deltaTime = 0; };
 	World(const World& root);
 	World& operator=(const World&);
 	~World();
 	Anthill * anthill;
 	vector<FoodSource*> foodSourecs;
+	float deltaTime;
 public:
 	static World& Instance()
 	{
@@ -23,5 +24,6 @@ public:
 	Anthill * GetAnthill();
 	const vector<FoodSource *> GetFoodSources();
 	FoodSource * getRandomFoodSource();
+	float GetDeltaTime();
 };
 

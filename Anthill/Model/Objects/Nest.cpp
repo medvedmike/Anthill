@@ -1,7 +1,7 @@
 #include "Nest.h"
+#include "ObjectsProperties.h"
 
-
-Nest::Nest()
+Nest::Nest(Vector * _position) : GameObject(_position, NEST_SIZE)
 {
 }
 

@@ -10,23 +10,24 @@
 Anthill::Anthill(Vector * _position, float _size) : GameObject(_position, _size)
 {
 	storage = new FoodStorage(Vector::RandomAround(position->X(), position->Y(), size));
+	nest = new Nest(Vector::RandomAround(position->X(), position->Y(), size));
 
 	Queen * queen = new Queen(Vector::RandomAround(position->X(), position->Y(), size), this);
 	ants.push_back(queen);
 
-	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
-	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
-	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
-	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
-	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
-	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
-	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
-	ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
+	//ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
+	//ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
+	//ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
+	//ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
+	//ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
+	//ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
+	//ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
+	//ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
 
-	ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
-	ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
-	ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
-	ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
+	//ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
+	//ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
+	//ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
+	//ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
 
 	ants.push_back(new Worker(Vector::RandomAround(position->X(), position->Y(), size), this));
 	ants.push_back(new Worker(Vector::RandomAround(position->X(), position->Y(), size), this));
@@ -34,9 +35,9 @@ Anthill::Anthill(Vector * _position, float _size) : GameObject(_position, _size)
 	ants.push_back(new Worker(Vector::RandomAround(position->X(), position->Y(), size), this));
 	ants.push_back(new Worker(Vector::RandomAround(position->X(), position->Y(), size), this));
 
-	ants.push_back(new Warrior(Vector::RandomAround(position->X(), position->Y(), size), this));
-	ants.push_back(new Warrior(Vector::RandomAround(position->X(), position->Y(), size), this));
-	ants.push_back(new Warrior(Vector::RandomAround(position->X(), position->Y(), size), this));
+	//ants.push_back(new Warrior(Vector::RandomAround(position->X(), position->Y(), size), this));
+	//ants.push_back(new Warrior(Vector::RandomAround(position->X(), position->Y(), size), this));
+	//ants.push_back(new Warrior(Vector::RandomAround(position->X(), position->Y(), size), this));
 
 	std::ostringstream buf;
 	buf << "Anthilll created at (" << position->X() << ";" << position->Y() << ") with size=" << size;
@@ -75,9 +76,22 @@ void Anthill::Update(float _deltaTime)
 		else
 			i++;
 	}
+	for (vector<BaseAnt *>::iterator tmp = cache.begin(); tmp != cache.end(); tmp++)
+		ants.push_back(*tmp._Ptr);
+	cache.clear();
 }
 
 FoodStorage * Anthill::GetStorage()
 {
 	return storage;
+}
+
+Nest * Anthill::GetNest()
+{
+	return nest;
+}
+
+void Anthill::AddAnt(BaseAnt * ant)
+{
+	cache.push_back(ant);
 }
