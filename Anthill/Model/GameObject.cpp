@@ -10,6 +10,8 @@ GameObject::GameObject(Vector * _position, float _size)
 
 GameObject::~GameObject()
 {
+	for (std::vector<OnDestroyObjectListener *>::iterator i = destroyListeners.begin(); i != destroyListeners.end(); i++)
+		(*i)->OnDestroyObject(this);
 	delete position;
 }
 
@@ -31,4 +33,22 @@ float GameObject::Size()
 void GameObject::Update(float _deltaTime)
 {
 
+}
+
+void GameObject::AddDestroyListener(OnDestroyObjectListener * listener) 
+{
+	this->destroyListeners.push_back(listener);
+}
+
+void GameObject::RemoveDestroyListener(OnDestroyObjectListener * listener)
+{
+	//TODO need to refractor
+	std::vector<OnDestroyObjectListener *>::iterator i = destroyListeners.begin();
+	while (i != destroyListeners.end() && listener != *i)
+	{
+		if (listener == *i)
+			i = destroyListeners.erase(i);
+		else
+			i++;
+	}
 }

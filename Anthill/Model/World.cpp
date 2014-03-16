@@ -6,7 +6,7 @@
 void World::InitWorld(int _worldSize)
 {
 	anthill = new Anthill(Vector::RandomAround(0, 0, _worldSize), ANTHILL_SIZE);
-	for (int i = 0; i < 2 + rand() % rand() % 5; i++)
+	for (int i = 0; i < 2 + rand() % rand() % 1; i++)
 	{
 		Vector * p = Vector::RandomAround(0, 0, _worldSize);
 		while (p->DistanceTo(anthill->Position()) < anthill->Size() + FOOD_SOURCE_SIZE)
@@ -35,7 +35,7 @@ void World::Update(float _deltaTime)
 		{
 			FoodSource * dead = *fs._Ptr;
 			fs = foodSourecs.erase(fs);
-			//delete dead;
+			delete dead;
 		} 
 		else
 		{
@@ -57,7 +57,10 @@ const vector<FoodSource *> World::GetFoodSources()
 
 FoodSource * World::getRandomFoodSource()
 {
-	return foodSourecs[rand() % foodSourecs.size()];
+	if (foodSourecs.size() > 0)
+		return foodSourecs[rand() % foodSourecs.size()];
+	else
+		return NULL;
 }
 
 float World::GetDeltaTime()

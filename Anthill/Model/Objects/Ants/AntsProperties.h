@@ -4,6 +4,7 @@
 #define MAX_HP 1
 #define MAX_SATIETY 1
 #define ANT_EAT 0.05f
+#define EAT_HELPFULNESS 0.4f
 
 #define QUEEN_SPEED 25
 #define QUEEN_EATING 0.05f

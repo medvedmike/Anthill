@@ -79,7 +79,7 @@ void BaseAnt::Update(float _deltaTime)
 void BaseAnt::Eat(FoodStorage * storage)
 {
 	if (satiety < MAX_SATIETY - ANT_EAT)
-		satiety += storage->GetFood(ANT_EAT);
+		satiety += storage->GetFood(ANT_EAT) * EAT_HELPFULNESS;
 	/*std::ostringstream str;
 	str << satiety << "   " << ANT_EAT;
 	Log::Debug(str.str());*/

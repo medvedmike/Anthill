@@ -24,10 +24,10 @@ Anthill::Anthill(Vector * _position, float _size) : GameObject(_position, _size)
 	//ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
 	//ants.push_back(new Larvae(Vector::RandomAround(position->X(), position->Y(), size), this));
 
-	//ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
-	//ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
-	//ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
-	//ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Policeman(Vector::RandomAround(position->X(), position->Y(), size), this));
 
 	ants.push_back(new Worker(Vector::RandomAround(position->X(), position->Y(), size), this));
 	ants.push_back(new Worker(Vector::RandomAround(position->X(), position->Y(), size), this));
@@ -35,9 +35,9 @@ Anthill::Anthill(Vector * _position, float _size) : GameObject(_position, _size)
 	ants.push_back(new Worker(Vector::RandomAround(position->X(), position->Y(), size), this));
 	ants.push_back(new Worker(Vector::RandomAround(position->X(), position->Y(), size), this));
 
-	//ants.push_back(new Warrior(Vector::RandomAround(position->X(), position->Y(), size), this));
-	//ants.push_back(new Warrior(Vector::RandomAround(position->X(), position->Y(), size), this));
-	//ants.push_back(new Warrior(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Warrior(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Warrior(Vector::RandomAround(position->X(), position->Y(), size), this));
+	ants.push_back(new Warrior(Vector::RandomAround(position->X(), position->Y(), size), this));
 
 	std::ostringstream buf;
 	buf << "Anthilll created at (" << position->X() << ";" << position->Y() << ") with size=" << size;
