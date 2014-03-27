@@ -60,3 +60,8 @@ void Queen::BirhLarvaes()
 		}
 	}
 }
+
+int Queen::ChooseAnt()
+{
+	return rand() % 6;
+}

@@ -44,13 +44,23 @@ void BaseAnt::Update(float _deltaTime)
 	if (health > 0)
 	{
 		if (targetObject != NULL && position->DistanceTo(targetObject->Position()) > size + targetObject->Size())
-			*direction = *targetObject->Position() - *position;
+		{
+			const Vector * n = *targetObject->Position() - *position;
+			*direction =*n;
+			delete n;
+		}
 		else if (targetPoint != NULL && position->DistanceTo(targetPoint) > 2 * size)
-			*direction = *targetPoint - *position;
+		{
+			const Vector * n = *targetPoint - *position;
+			*direction = *n;
+			delete n;
+		}
 		else
 			*direction = Vector::zero;
 		direction->Normalize();
-		*position += *direction * speed * _deltaTime;
+		const Vector * n = (*direction * (speed * _deltaTime));
+		*position += *n;
+		delete n;
 		position->Noize();
 	}
 	if (satiety < minSatiety && !eat)

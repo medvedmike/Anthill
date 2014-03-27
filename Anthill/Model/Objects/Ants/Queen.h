@@ -15,5 +15,6 @@ public:
 	void Update(float _deltaTime);
 	void BirhLarvaes();
 	friend BornStrategy;
+	int ChooseAnt();
 };
 

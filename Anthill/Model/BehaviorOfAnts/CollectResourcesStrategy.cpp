@@ -11,6 +11,8 @@ CollectResourcesStrategy::CollectResourcesStrategy(Worker * _worker) : WorkerBas
 
 CollectResourcesStrategy::~CollectResourcesStrategy()
 {
+	if (worker->targetObject != NULL)
+		worker->targetObject->RemoveDestroyListener(this);
 }
 
 void CollectResourcesStrategy::Update(float _deltaTime)
@@ -37,6 +39,7 @@ void CollectResourcesStrategy::Update(float _deltaTime)
 			{
 				worker->cache = worker->foodSource->getFood(WORKER_CASH_SIZE - worker->cache, worker);
 				if (worker->cache < WORKER_CASH_SIZE)
+					//тут ошибка доступа скорее всего
 					worker->targetObject = worker->foodSource = World::Instance().getRandomFoodSource();
 				else
 					worker->targetObject = worker->home->GetStorage();

@@ -99,6 +99,7 @@ void View::Draw()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	glBegin(GL_LINE);
+	glColor4f(0, 0, 0, 1);
 	for (int i = 0; i < 1000; i += 100)
 	{
 		glVertex2f(i, 0);
@@ -109,6 +110,9 @@ void View::Draw()
 	vector<BaseAnt *> ants = World::Instance().GetAnthill()->GetAnts();
 	for (vector<BaseAnt *>::iterator ant = ants.begin(); ant != ants.end(); ant++)
 		DrawAnt(*ant._Ptr);
+	vector<Larvae *> larvaes = World::Instance().GetAnthill()->GetLarvaes();
+	for (vector<Larvae *>::iterator larvae = larvaes.begin(); larvae != larvaes.end(); larvae++)
+		DrawAnt(*larvae._Ptr);
 	glColor4f(0.9, 0.9, 0.5, 1);
 	vector<FoodSource *> foodSources = World::Instance().GetFoodSources();
 	for (vector<FoodSource *>::iterator source = foodSources.begin(); source != foodSources.end(); source++)

@@ -57,15 +57,15 @@ void Vector::Normalize()
 	}
 }
 
-const Vector& operator+(const Vector& left, const Vector& right)
+const Vector * operator+(const Vector& left, const Vector& right)
 {
 	//!!утечки памяти!!
-	return *(new Vector(left.x + right.x, left.y + right.y));
+	return new Vector(left.x + right.x, left.y + right.y);
 }
 
-const Vector& operator-(const Vector& left, const Vector& right)
+const Vector * operator-(const Vector& left, const Vector& right)
 {
-	return *(new Vector(left.x - right.x, left.y - right.y));
+	return new Vector(left.x - right.x, left.y - right.y);
 }
 
 Vector& operator+=(Vector& left, const Vector& right)
@@ -82,9 +82,9 @@ Vector& operator-=(Vector& left, const Vector& right)
 	return left;
 }
 
-const Vector& operator*(const Vector& left, const float right)
+const Vector * operator*(const Vector& left, const float right)
 {
-	return *(new Vector(left.x * right, left.y * right));
+	return new Vector(left.x * right, left.y * right);
 }
 
 Vector& Vector::operator=(const Vector& right)
