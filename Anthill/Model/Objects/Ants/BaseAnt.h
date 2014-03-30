@@ -6,10 +6,13 @@ class Anthill;
 class BaseStrategy;
 class EatingStrategy;
 class WaitingStrategy;
+class PatroolStrategy;
 class FoodStorage;
 
-class BaseAnt : public GameObject
+class BaseAnt : public GameObject, OnDestroyObjectListener
 {
+private:
+	GameObject * targetObject;
 protected:
 	float health;
 	float speed;
@@ -20,10 +23,11 @@ protected:
 	bool wait;
 	Vector * targetPoint;
 	Vector * direction;
-	GameObject * targetObject;
 	Anthill * home;
 	BaseStrategy * strategy;
 	float minSatiety;
+	void SetTarget(GameObject* target);
+	GameObject * GetTarget();
 public:
 	BaseAnt(Vector * _position, float _size, float _speed, float _eating, float _defence, Anthill * _home);
 	virtual ~BaseAnt();
@@ -32,5 +36,8 @@ public:
 	void Eat(FoodStorage * storage);
 	friend EatingStrategy;
 	friend WaitingStrategy;
+	friend PatroolStrategy;
+	virtual void OnDestroyObject(GameObject * obj);
+	void Attack(float power);
 };
 

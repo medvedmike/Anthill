@@ -10,6 +10,7 @@
 #include "..\Model\Objects\Ants\Worker.h"
 #include "..\Model\Objects\Ants\Warrior.h"
 #include "..\Model\Objects\ObjectsProperties.h"
+#include "..\Model\Objects\Ants\Enemy.h"
 
 using namespace std;
 
@@ -52,11 +53,13 @@ void View::DrawAnt(BaseAnt * ant)
 	if (typeid(*ant) == typeid(Worker))
 		glColor4f(0.5, 0.5, 0.5, 1);
 	else if (typeid(*ant) == typeid(Warrior))
-		glColor4f(0.65, 0.2, 0.2, 1);
+		glColor4f(0.75, 0.5, 0.2, 1);
 	else if(typeid(*ant) == typeid(Larvae))
 		glColor4f(0.9, 0.9, 0.8, 1);
 	else if (typeid(*ant) == typeid(Policeman))
 		glColor4f(0, 0, 1, 1);
+	else if (typeid(*ant) == typeid(Enemy))
+		glColor4f(0.9, 0.1, 0.1, 1); 
 	else if (typeid(*ant) == typeid(Queen))
 		glColor4f(0.8, 0.7, 0.6, 1);
 	else
@@ -113,6 +116,11 @@ void View::Draw()
 	vector<Larvae *> larvaes = World::Instance().GetAnthill()->GetLarvaes();
 	for (vector<Larvae *>::iterator larvae = larvaes.begin(); larvae != larvaes.end(); larvae++)
 		DrawAnt(*larvae._Ptr);
+
+	vector<Enemy *> enemies = World::Instance().GetEnemies();
+	for (vector<Enemy *>::iterator enemy = enemies.begin(); enemy != enemies.end(); enemy++)
+		DrawAnt(*enemy._Ptr);
+
 	glColor4f(0.9, 0.9, 0.5, 1);
 	vector<FoodSource *> foodSources = World::Instance().GetFoodSources();
 	for (vector<FoodSource *>::iterator source = foodSources.begin(); source != foodSources.end(); source++)

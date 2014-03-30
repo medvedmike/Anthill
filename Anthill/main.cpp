@@ -41,7 +41,7 @@ View * view;
 void InitLog()
 {
 	Log::Init();
-	Log::SetLevel(ALL);
+	Log::SetLevel(DEBUG);
 }
 
 void InitializeView(int argc, char * argv[])
@@ -55,14 +55,20 @@ void InitializeModel()
 	World::Instance().InitWorld(300);
 }
 
-int main(int argc, char * argv[])
-{
-	srand(time(NULL));
+void Start(int argc, char * argv[]) {
+	InitLog();
 	InitializeModel();
 	InitializeView(argc, argv);
 	Log::Message("Application started");
 	view->Start();
 	delete view;
+}
+
+int main(int argc, char * argv[])
+{
+	srand(time(NULL));
+	Start(argc, argv);
+	cin.ignore();
 	Log::Message("Application closed");
 	return 0;
 }

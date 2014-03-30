@@ -59,7 +59,6 @@ void Vector::Normalize()
 
 const Vector * operator+(const Vector& left, const Vector& right)
 {
-	//!!утечки памяти!!
 	return new Vector(left.x + right.x, left.y + right.y);
 }
 

@@ -3,6 +3,7 @@
 #include "Objects\Anthill.h"
 #include <vector>
 #include "Objects\FoodSource.h"
+#include "Objects\Ants\Enemy.h"
 
 class World
 {
@@ -13,7 +14,9 @@ private:
 	~World();
 	Anthill * anthill;
 	vector<FoodSource*> foodSourecs;
+	vector<Enemy*> enemies;
 	float deltaTime;
+	float worldSize;
 public:
 	static World& Instance()
 	{
@@ -24,7 +27,9 @@ public:
 	void Update(float _deltaTime);
 	Anthill * GetAnthill();
 	const vector<FoodSource *> GetFoodSources();
+	const vector<Enemy *> GetEnemies();
 	FoodSource * getRandomFoodSource();
 	float GetDeltaTime();
+	float GetSize();
 };
 

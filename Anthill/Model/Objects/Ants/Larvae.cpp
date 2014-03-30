@@ -30,7 +30,7 @@ void Larvae::Update(float _deltaTime)
 			delete targetPoint;
 			targetPoint = Vector::RandomAround(home->GetNest()->Position()->X(), home->GetNest()->Position()->Y(), home->GetNest()->Size());
 		}
-		targetObject = NULL;
+		SetTarget(NULL);
 		if (eat)
 		{
 

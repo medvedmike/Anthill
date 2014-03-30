@@ -5,6 +5,7 @@
 #include "..\..\BehaviorOfAnts\BornStrategy.h"
 #include "..\..\BehaviorOfAnts\WaitingStrategy.h"
 #include "Larvae.h"
+#include "..\..\World.h"
 
 
 Queen::Queen(Vector * _position, Anthill * _home) : BaseAnt(_position, QUIEEN_SIZE, QUEEN_SPEED, QUEEN_EATING, QUEEN_DEFENCE, _home)
@@ -28,7 +29,7 @@ void Queen::Update(float _deltaTime)
 	{
 		Log::Message("Was born");
 		if (strategy != NULL) delete strategy;
-		targetObject = NULL;
+		SetTarget(NULL);
 		targetPoint = NULL;
 		strategy = new WaitingStrategy(this);
 		wait = true;
@@ -41,7 +42,7 @@ void Queen::Update(float _deltaTime)
 	{
 		Log::Message("Want born");
 		if (strategy != NULL) delete strategy;
-		targetObject = NULL;
+		SetTarget(NULL);
 		*targetPoint = *nest->Position();
 		strategy = new BornStrategy(this);
 		wait = false;
@@ -63,5 +64,7 @@ void Queen::BirhLarvaes()
 
 int Queen::ChooseAnt()
 {
+	if (World::Instance().GetEnemies().size() > 0)
+		return 4;
 	return rand() % 6;
 }

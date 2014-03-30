@@ -2,12 +2,13 @@
 #include "WorkerBaseStrategy.h"
 #include "..\GameObject.h"
 
-class CollectResourcesStrategy : public WorkerBaseStrategy, OnDestroyObjectListener
+class CollectResourcesStrategy : public WorkerBaseStrategy
 {
 public:
 	CollectResourcesStrategy(Worker * _worker);
 	~CollectResourcesStrategy();
 	virtual void Update(float _deltaTime);
-	virtual void OnDestroyObject(GameObject * obj);
+	void CollectResources();
+	void StoreResources();
 };
 

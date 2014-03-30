@@ -30,8 +30,29 @@ BaseAnt::BaseAnt(Vector * _position, float _size, float _speed, float _eating, f
 
 BaseAnt::~BaseAnt()
 {
+	if (targetObject != NULL)
+		targetObject->RemoveDestroyListener(this);
 	delete direction;
 	delete targetPoint;
+}
+
+void BaseAnt::SetTarget(GameObject* target) 
+{
+	if (targetObject != NULL)
+		targetObject->RemoveDestroyListener(this);
+	targetObject = target;
+	if (targetObject != NULL)
+	targetObject->AddDestroyListener(this);
+}
+
+GameObject * BaseAnt::GetTarget() 
+{
+	return targetObject;
+}
+
+void BaseAnt::OnDestroyObject(GameObject * obj) 
+{
+	targetObject = NULL;
 }
 
 void BaseAnt::Update(float _deltaTime)
@@ -81,9 +102,6 @@ void BaseAnt::Update(float _deltaTime)
 	}
 	if (strategy != NULL)
 		strategy->Update(_deltaTime);
-	//std::ostringstream buf;
-	//buf << "delta time: " << _deltaTime << " health: " << health << " satiety: " << satiety;
-	//Log::Message(buf.str());
 }
 
 void BaseAnt::Eat(FoodStorage * storage)
@@ -98,4 +116,9 @@ void BaseAnt::Eat(FoodStorage * storage)
 float BaseAnt::GetHealth()
 {
 	return health;
+}
+
+void BaseAnt::Attack(float power)
+{
+	this->health -= power * (1 - defence) * World::Instance().GetDeltaTime();
 }

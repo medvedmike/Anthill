@@ -87,6 +87,18 @@
     <ClInclude Include="Model\BehaviorOfAnts\BaseQueenStrategy.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Model\Objects\Ants\Enemy.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\BehaviorOfAnts\KillAllAntsStrategy.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\BehaviorOfAnts\KillEnemiesStrategy.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\BehaviorOfAnts\PatroolStrategy.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -156,6 +168,18 @@
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="Model\BehaviorOfAnts\BaseQueenStrategy.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Objects\Ants\Enemy.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\BehaviorOfAnts\KillAllAntsStrategy.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\BehaviorOfAnts\KillEnemiesStrategy.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\BehaviorOfAnts\PatroolStrategy.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>

@@ -16,4 +16,3 @@ public:
 	void Update(float _deltaTime);
 	friend CollectResourcesStrategy;
 };
-

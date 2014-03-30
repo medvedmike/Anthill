@@ -1,5 +1,6 @@
 #include "GameObject.h"
 #include "..\Log.h"
+#include <exception>
 
 GameObject::GameObject(Vector * _position, float _size)
 {
@@ -11,7 +12,17 @@ GameObject::GameObject(Vector * _position, float _size)
 GameObject::~GameObject()
 {
 	for (std::vector<OnDestroyObjectListener *>::iterator i = destroyListeners.begin(); i != destroyListeners.end(); i++)
-		(*i)->OnDestroyObject(this);
+	{
+		try
+		{
+			(*i._Ptr)->OnDestroyObject(this);
+		}
+		catch (int ex)
+		{
+
+		}
+	}
+	destroyListeners.clear();
 	delete position;
 }
 
@@ -42,13 +53,15 @@ void GameObject::AddDestroyListener(OnDestroyObjectListener * listener)
 
 void GameObject::RemoveDestroyListener(OnDestroyObjectListener * listener)
 {
-	//TODO need to refractor
-	std::vector<OnDestroyObjectListener *>::iterator i = destroyListeners.begin();
-	while (i != destroyListeners.end() && listener != *i)
+	if (destroyListeners.size() > 0)
 	{
-		if (listener == *i)
-			i = destroyListeners.erase(i);
-		else
-			i++;
+		std::vector<OnDestroyObjectListener *>::iterator i = destroyListeners.begin();
+		while (i != destroyListeners.end())
+		{
+			if (listener == *i._Ptr)
+				i = destroyListeners.erase(i);
+			else
+				i++;
+		}
 	}
 }
